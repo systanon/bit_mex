@@ -1,4 +1,4 @@
-# bit_mex_test
+# bit_mex
 
 ## Project setup
 
