@@ -1,11 +1,11 @@
 <template>
   <v-card outlined>
     <h2 class="text-center py-4">Instruments</h2>
-    <v-simple-table v-if="filteredInstruments.length" dense height="60vh">
+    <v-simple-table v-if="instruments.length" dense height="60vh">
       <template v-slot:default>
         <tbody>
           <tr
-            v-for="(item, index) in filteredInstruments"
+            v-for="(item, index) in instruments"
             :key="index"
             :class="{ primary: index === activeIndex }"
             @click="
@@ -35,11 +35,6 @@ export default {
     return {
       activeIndex: null,
     };
-  },
-  computed: {
-    filteredInstruments() {
-      return this.instruments.filter((item) => item.symbol[0] !== ".");
-    },
   },
 };
 </script>

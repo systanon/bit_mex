@@ -24,13 +24,13 @@ export default {
     return {
       amount: 1,
       rules: {
-        onlyNumbers: (v) => !/\D/g.test(v) || "Only digits",
+        onlyNumbers: (v) => !/[^0-9|^.]/g.test(v) || "Only digits",
       },
     };
   },
   computed: {
     disabled() {
-      return !this.amount || typeof this.amount !== "number" || this.amount < 1;
+      return !this.amount || typeof this.amount !== "number" || this.amount < 0;
     },
   },
   methods: {
