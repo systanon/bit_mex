@@ -4,8 +4,6 @@ import Vuex from "vuex";
 import { endpoints } from "../config/endpoints";
 import { api } from "./../api";
 
-window.api = api;
-
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -50,10 +48,10 @@ export default new Vuex.Store({
 
   actions: {
     async INIT({ commit, dispatch }) {
-      dispatch("GET_INSTRUMENTS");
-      dispatch("GET_BUCKETED");
+      // dispatch("GET_INSTRUMENTS");
+      // dispatch("GET_BUCKETED");
       dispatch("GET_ORDERS");
-      dispatch("GET_WALLET");
+      // dispatch("GET_WALLET");
     },
     async GET_INSTRUMENTS({ commit }) {
       const response = await api.http.get(endpoints.instruments);

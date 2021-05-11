@@ -48,8 +48,7 @@ export default {
     //
   }),
   created() {
-    window.store = this.$store;
-    // this.$store.dispatch("INIT");
+    this.$store.dispatch("INIT");
   },
 };
 </script>

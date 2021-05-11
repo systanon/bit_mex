@@ -7,11 +7,12 @@ import vuetify from "./plugins/vuetify";
 
 import ErrorMessage from "@/components/error.vue";
 
-import { formatTime } from "@/filters/filters";
+import { formatTime, formatDate } from "@/filters/filters";
 
 Vue.config.productionTip = false;
 
 Vue.filter("formatTime", formatTime);
+Vue.filter("formatDate", formatDate);
 
 Vue.component("error-message", ErrorMessage);
 

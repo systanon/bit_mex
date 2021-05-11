@@ -22,11 +22,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in data" :key="index">
+          <tr v-for="(item, index) in orders" :key="index">
             <td>{{ item.orderID }}</td>
             <td>{{ item.symbol }}</td>
             <td>{{ item.orderQty }}</td>
-            <td>{{ item.timestamp | formatTime }}</td>
+            <td>{{ item.timestamp | formatDate }}</td>
             <td>{{ item.side }}</td>
             <td>{{ item.price }}</td>
             <td>{{ item.ordStatus }}</td>
@@ -44,6 +44,11 @@ export default {
     data: {
       type: Array,
       default: new Array(),
+    },
+  },
+  computed: {
+    orders() {
+      return this.data.slice(0).reverse();
     },
   },
 };

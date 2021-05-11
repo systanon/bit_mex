@@ -17,3 +17,26 @@ export const formatTime = (time) => {
   };
   return date.toLocaleString(locale, options);
 };
+
+export const formatDate = (time) => {
+  let date;
+  if (typeof time === "number") {
+    const milliseconds = time * 1000;
+    date = new Date(milliseconds);
+  }
+  if (typeof time === "string") {
+    date = new Date(time);
+  }
+  if (!date) return time;
+
+  const locale = "en";
+  const options = {
+    hour12: false,
+    weekday: "long",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  };
+  return date.toLocaleString(locale, options);
+};

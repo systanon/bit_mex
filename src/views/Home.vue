@@ -14,7 +14,7 @@
         <CreateOrderForm :symbol="symbol" @submit="createOrder" />
       </v-col>
       <v-col cols="12">
-        <OrdersHistory :data="order" />
+        <OrdersHistory :data="storeOrders" />
       </v-col>
     </v-row>
   </v-container>
@@ -120,7 +120,7 @@ export default {
     await api.ws.authentication();
 
     api.ws.subscribe(tables.instrument, this.refreashInstruments);
-    api.ws.subscribe(tables.order, this.refreashOrder);
+    // api.ws.subscribe(tables.order, this.refreashOrder);
     if (this.symbol) {
       api.ws.subscribe(`${tables.trade}:${this.symbol}`, this.refreashTrade);
       api.ws.subscribe(
@@ -132,7 +132,7 @@ export default {
   },
   beforeDestroy() {
     api.ws.unsubscribe(tables.instrument);
-    api.ws.unsubscribe(tables.order);
+    // api.ws.unsubscribe(tables.order);
     if (this.symbol) {
       api.ws.unsubscribe(`${tables.trade}:${this.symbol}`);
       api.ws.unsubscribe(`${tables.orderBook}:${this.symbol}`);
