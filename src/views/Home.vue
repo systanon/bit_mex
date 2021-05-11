@@ -107,7 +107,7 @@ export default {
       this.order = this.refreash(this.order, data, "orderID");
     },
     refreashTrade(data) {
-      this.trade = this.refreash(this.trad, data, "trdMatchID");
+      this.trade = this.refreash(this.trade, data, "trdMatchID");
     },
     refreashOrderBook(data) {
       this.orderBook = this.refreash(this.orderBook, data, "id");
