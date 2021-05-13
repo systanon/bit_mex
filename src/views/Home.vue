@@ -8,7 +8,7 @@
         />
       </v-col>
       <v-col cols="12" md="7">
-        <Trades :data="trade" />
+        <Trades :data="storeBucketed" />
       </v-col>
       <v-col cols="12" offset-sm="3" sm="6" offset-md="0" md="2">
         <CreateOrderForm :symbol="symbol" @submit="createOrder" />
@@ -57,6 +57,13 @@ export default {
   },
   watch: {
     symbol(newSymbol, oldSymbol) {
+      this.$store.dispatch("GET_BUCKETED", {
+        binSize: "1m",
+        partial: false,
+        count: 100,
+        reverse: true,
+        symbol: newSymbol,
+      });
       if (oldSymbol) {
         api.ws.unsubscribe(`${tables.trade}:${oldSymbol}`);
         api.ws.unsubscribe(`${tables.orderBook}:${oldSymbol}`);

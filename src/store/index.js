@@ -59,9 +59,9 @@ export default new Vuex.Store({
         commit("INSTRUMENTS", response.data);
       }
     },
-    async GET_BUCKETED({ commit }) {
+    async GET_BUCKETED({ commit }, params) {
       const response = await api.http.get(endpoints.bucketed, {
-        params: endpoints.bucketedParams,
+        params,
       });
       if (response.statusText === "OK") {
         commit("BUCKETED", response.data);

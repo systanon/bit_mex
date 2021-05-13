@@ -1,7 +1,7 @@
 <template>
   <v-card flat outlined>
     <h2 class="text-center py-4">Trade</h2>
-    <v-simple-table v-if="data.length" dense class="table-detail">
+    <v-simple-table v-if="data.length" dense height="60vh">
       <template v-slot:default>
         <thead>
           <tr>
@@ -41,5 +41,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

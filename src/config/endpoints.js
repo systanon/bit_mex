@@ -13,15 +13,6 @@ export const endpoints = {
   get bucketed() {
     return this._path + "/" + this._bucketed;
   },
-  get bucketedParams() {
-    return {
-      binSize: "1m",
-      partial: false,
-      count: 100,
-      reverse: true,
-      symbol: "XBTUSD",
-    };
-  },
   get orders() {
     return this._path + "/" + this._orders;
   },
